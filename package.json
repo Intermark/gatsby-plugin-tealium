@@ -3,10 +3,26 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "peerDependencies": {
+    "gatsby": "^2.0.0",
+    "react": "^16.8.0"
   },
-  "author": "",
-  "license": "ISC",
-  "repository": "git://github.com/michaelpanik/gatsby-plugin-tealium"
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "analytics",
+    "tealium",
+    "utag"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/michaelpanik/gatsby-plugin-tealium"
+  },
+  "bugs": {
+    "url": "https://github.com/michaelpanik/gatsby-plugin-tealium/issues"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "common-tags": "^1.8.2"
+  }
 }
