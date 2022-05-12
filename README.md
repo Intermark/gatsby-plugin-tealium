@@ -1,5 +1,26 @@
 # gatsby-plugin-tealium
 
+## Usage
+
+`gatsby-config.js`
+
+```js
+module.exports = {
+  plugins: [
+    {
+      resolve: `gatsby-plugin-tealium`,
+      options: {
+        account: "YOUR ACCOUNT ID",
+        profile: "YOUR PROFILE ID",
+        env: "dev", // Either dev, qa, or prod
+        injectUtagSync: true, // Toggles async loading for utag script
+        disableInitialTracking: false, // Toggles tracking of initial pageload
+      },
+    },
+  ],
+};
+```
+
 ## Example
 
 ```tsx

@@ -1,7 +1,8 @@
 {
-  "name": "@michaelpanik/gatsby-plugin-tealium",
+  "name": "gatsby-plugin-tealium",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple tools for including and interacting with Tealium in Gatsby projects.",
+  "author": "Alloy <dev@alloy.digital> (http://alloy.digital)",
   "main": "index.js",
   "peerDependencies": {
     "gatsby": "^2.0.0",
@@ -16,10 +17,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/michaelpanik/gatsby-plugin-tealium"
+    "url": "git://github.com/Intermark/gatsby-plugin-tealium"
   },
   "bugs": {
-    "url": "https://github.com/michaelpanik/gatsby-plugin-tealium/issues"
+    "url": "https://github.com/Intermark/gatsby-plugin-tealium/issues"
   },
   "license": "MIT",
   "dependencies": {

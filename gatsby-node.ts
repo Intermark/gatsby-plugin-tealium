@@ -4,7 +4,7 @@ export const pluginOptionsSchema = ({ Joi }) => {
     account: Joi.string().required().description(``),
     profile: Joi.string().required().description(``),
     env: Joi.string().valid("dev", "qa", "prod").description(``).default(`default message`),
-    injectUtagSync: Joi.boolean().description(``).default(`default message`),
+    injectUtagSync: Joi.boolean().description(``).default(true),
     disableInitialTracking: Joi.boolean().description(``).default(`default message`)
   }).external(async (pluginOptions) => {
     const url = `https://tags.tiqcdn.com/utag/${pluginOptions.account}/${pluginOptions.profile}/${pluginOptions.env}/utag.sync.js`
