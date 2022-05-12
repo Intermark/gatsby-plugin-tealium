@@ -3,23 +3,26 @@
 ## Example
 
 ```tsx
-import { useTealiumEvent } from "gatsby-plugin-tealium";
+import {
+  useTealiumViewEvent,
+  useTealiumLinkEvent,
+} from "gatsby-plugin-tealium";
 
 const Page: GatsbyPage = () => {
-  const loadEvent = useTealiumEvent({
-    type: "load",
+  useTealiumViewEvent({
+    key: "value",
   });
 
-  const clickEvent = useTealiumEvent({
-    type: "click",
-  });
-
-  loadEvent();
+  const clickEvent = () => {
+    useTealiumLinkEvent({
+      key: "value",
+    });
+  };
 
   return (
     <>
       <h1>Hello, world.</h1>
-      <button onClick={() => clickEvent()}>Click here!</button>
+      <button onClick={clickEvent}>Click here!</button>
     </>
   );
 };
