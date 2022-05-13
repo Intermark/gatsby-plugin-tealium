@@ -45,7 +45,7 @@ export const onRenderBody = (
           `,
         },
       }),
-      // TODO: Check if the use of dangerouslySetInnerHTML here is a security risk.
+      // TODO: Check if the use of dangerouslySetInnerHTML here is a security risk. Set type of utagData as an object.
       // If initial value for utag_data is not provided, do not set the utag_data variable
       React.createElement("script", {
         key: "utagDataObject",
