@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 import { oneLineTrim } from "common-tags"
 
 export const onRenderBody = (
@@ -7,6 +7,7 @@ export const onRenderBody = (
     account,
     profile,
     env = "dev",
+    utagData,
     injectUtagSync = false,
     disableInitialTracking = false,
   }
@@ -18,7 +19,7 @@ export const onRenderBody = (
           key: "plugin-tealium-utag-sync",
           src: `https://tags.tiqcdn.com/utag/${account}/${profile}/${env}/utag.sync.js`,
         }),
-      ]);
+      ])
     }
 
     setPreBodyComponents([
@@ -26,12 +27,13 @@ export const onRenderBody = (
         key: "plugin-tealium-utag",
         dangerouslySetInnerHTML: {
           __html: oneLineTrim`
-            ${disableInitialTracking
-              ? `
+            ${
+              disableInitialTracking
+                ? `
               window.utag_cfg_ovrd = window.utag_cfg_ovrd || {};
               window.utag_cfg_ovrd.noview = true;
             `
-              : ""
+                : ""
             }
             (function(a,b,c,d){
               a='//tags.tiqcdn.com/utag/${account}/${profile}/${env}/utag.js';
@@ -43,10 +45,37 @@ export const onRenderBody = (
           `,
         },
       }),
-    ]);
+      // TODO: Check if the use of dangerouslySetInnerHTML here is a security risk.
+      // If initial value for utag_data is not provided, do not set the utag_data variable
+      React.createElement("script", {
+        key: "utagDataObject",
+        dangerouslySetInnerHTML: {
+          __html: utagData
+            ? `var utag_data = ${JSON.stringify(utagData)}`
+            : null,
+        },
+      }),
+    ])
   } else {
     throw new Error(
       `Unknown env: [${env}]. env must be "dev", "qa", or "prod".`
-    );
+    )
   }
-};
+}
+
+// Reorder the pre-body components to ensure that the utagDataObject is set prior to utag.js, which is added to the <body> via gatsby-plugin-tealium-utag
+export const onPreRenderHTML = ({
+  getPreBodyComponents,
+  replacePreBodyComponents,
+}) => {
+  const preBodyComponents = getPreBodyComponents()
+  preBodyComponents.sort((x, y) => {
+    if (x.key === "utagDataObject") {
+      return -1
+    } else if (y.key === "utagDataObject") {
+      return 1
+    }
+    return 0
+  })
+  replacePreBodyComponents(preBodyComponents)
+}

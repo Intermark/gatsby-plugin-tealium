@@ -3,6 +3,7 @@ export const pluginOptionsSchema = ({ Joi }) => {
   return Joi.object({
     account: Joi.string().required().description(``),
     profile: Joi.string().required().description(``),
+    utagData:Joi.string().required().description(``),
     env: Joi.string().valid("dev", "qa", "prod").description(``).default(`default message`),
     injectUtagSync: Joi.boolean().description(``).default(true),
     disableInitialTracking: Joi.boolean().description(``).default(`default message`)
