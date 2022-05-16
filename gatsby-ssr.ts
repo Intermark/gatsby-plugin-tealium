@@ -46,14 +46,15 @@ export const onRenderBody = (
           `,
         },
       }),
-      // TODO: Check if the use of dangerouslySetInnerHTML here is a security risk. Set type of utagData as an object.
-      // If initial value for utag_data is not provided, do not set the utag_data variable
+      // TODO: Check if the use of dangerouslySetInnerHTML here is a security risk. Make better use of TypeScript here.
+      // "If initial value for utag_data is not provided or it is not an object, do not set the utag_data variable."
       React.createElement("script", {
         key: "utagDataObject",
         dangerouslySetInnerHTML: {
-          __html: utagData
-            ? `var utag_data = ${JSON.stringify(utagData)}`
-            : null,
+          __html:
+            typeof utagData === "object"
+              ? `var utag_data = ${JSON.stringify(utagData)}`
+              : null,
         },
       }),
     ])
