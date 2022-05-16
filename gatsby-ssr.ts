@@ -1,5 +1,6 @@
 import React from "react"
 import { oneLineTrim } from "common-tags"
+import { OnRenderBodyOptions } from "./global"
 
 export const onRenderBody = (
   { setHeadComponents, setPreBodyComponents },
@@ -10,7 +11,7 @@ export const onRenderBody = (
     utagData,
     injectUtagSync = false,
     disableInitialTracking = false,
-  }
+  }: OnRenderBodyOptions
 ) => {
   if (["dev", "qa", "prod"].includes(env)) {
     if (injectUtagSync) {
