@@ -12,7 +12,7 @@ module.exports = {
       options: {
         account: "YOUR ACCOUNT ID",
         profile: "YOUR PROFILE ID",
-        utagData: { key : "value" } // Optional object for initial UDO (utag_data) definition.
+        utagData: { key : "value" } // Optional object for initial UDO (utag_data) definition. If not provided, utag_data object is not created.
         env: "dev", // Either dev, qa, or prod
         injectUtagSync: true, // Toggles async loading for utag script
         disableInitialTracking: false, // Toggles tracking of initial pageload
