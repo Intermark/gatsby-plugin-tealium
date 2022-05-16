@@ -1,11 +1,11 @@
 {
   "name": "gatsby-plugin-tealium",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple tools for including and interacting with Tealium in Gatsby projects.",
   "author": "Alloy <dev@alloy.digital> (http://alloy.digital)",
   "main": "index.js",
   "peerDependencies": {
-    "gatsby": "^2.0.0",
+    "gatsby": "^2.0.0 || ^3.0.0 || ^4.0.0",
     "react": "^16.8.0"
   },
   "keywords": [

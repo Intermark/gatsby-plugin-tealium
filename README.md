@@ -12,6 +12,7 @@ module.exports = {
       options: {
         account: "YOUR ACCOUNT ID",
         profile: "YOUR PROFILE ID",
+        utagData: { key : "value" } // Optional object for initial UDO (utag_data) definition. If not provided, utag_data object is not created.
         env: "dev", // Either dev, qa, or prod
         injectUtagSync: true, // Toggles async loading for utag script
         disableInitialTracking: false, // Toggles tracking of initial pageload
@@ -24,27 +25,24 @@ module.exports = {
 ## Example
 
 ```tsx
-import {
-  useTealiumViewEvent,
-  useTealiumLinkEvent,
-} from "gatsby-plugin-tealium";
+import { useTealiumViewEvent, useTealiumLinkEvent } from "gatsby-plugin-tealium"
 
 const Page: GatsbyPage = () => {
   useTealiumViewEvent({
     key: "value",
-  });
+  })
 
   const clickEvent = () => {
     useTealiumLinkEvent({
       key: "value",
-    });
-  };
+    })
+  }
 
   return (
     <>
       <h1>Hello, world.</h1>
       <button onClick={clickEvent}>Click here!</button>
     </>
-  );
-};
+  )
+}
 ```
