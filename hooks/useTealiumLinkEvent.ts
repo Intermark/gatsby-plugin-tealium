@@ -1,15 +1,10 @@
 import { TealiumEvent } from "../global.d"
 
-const useTealiumLinkEvent = (data: TealiumEvent): (() => void) => {
-  console.log("LinkData", data)
-  const tealiumEvent = () => {
-    if (!window || !window.utag) {
-      console.error("utag.js had not loaded yet.")
-      return
-    }
-    window.utag.link(data)
+const useTealiumLinkEvent = (data: TealiumEvent): void => {
+  if (!window || !window.utag) {
+    console.error("utag.js has not loaded yet.")
+    return
   }
-
-  return tealiumEvent
+  window.utag.link(data)
 }
 export default useTealiumLinkEvent
