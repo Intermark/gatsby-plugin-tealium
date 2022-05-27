@@ -4,10 +4,6 @@ declare global {
   }
 }
 
-export type TealiumEvent = {
-  type: string
-}
-
 export type OnRenderBodyOptions = {
   account: string
   profile: string
