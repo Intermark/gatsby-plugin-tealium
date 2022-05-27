@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-tealium",
-  "version": "1.0.3",
+  "version": "1.2.0",
   "description": "Simple tools for including and interacting with Tealium in Gatsby projects.",
   "author": "Alloy <dev@alloy.digital> (http://alloy.digital)",
   "main": "index.js",
